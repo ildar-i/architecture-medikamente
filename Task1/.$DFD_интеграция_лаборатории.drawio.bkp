@@ -1,0 +1,67 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram name="Интеграция с лабораторией" id="dfd-lab">
+    <mxGraphModel dx="935" dy="616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lab" value="Лаборатория" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;arcSize=8;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="doctor" value="Врач" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;arcSize=8;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="Администратор" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;arcSize=8;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="process1" value="1.0&#xa;Передача данных&#xa;в лабораторию" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="180" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process2" value="2.0&#xa;Получение результатов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="320" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process3" value="3.0&#xa;Сохранение результатов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="480" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process4" value="4.0&#xa;Регистрация в Excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="640" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="store1" value="Excel:&#xa;Реестр анализов" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="550" y="640" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="store2" value="Файловая&#xa;система:&#xa;Результаты анализов" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="550" y="480" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" value="Данные пациента&#xa;для анализа" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="admin" target="process1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" value="Данные пациента" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process1" target="lab" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" value="Результаты анализов" style="endArrow=block;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="lab" target="process2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" value="Результаты анализов" style="endArrow=block;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process2" target="process3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" value="Файлы результатов" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process3" target="store2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow6" value="Запись в реестр" style="endArrow=block;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process3" target="process4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow7" value="Запись в реестр" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process4" target="store1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow8" value="Просмотр результатов" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;dashed=1;" parent="1" source="doctor" target="store2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="security1" value="⚠️ Ручная передача данных&#xa;⚠️ Нет шифрования&#xa;⚠️ Нет контроля целостности&#xa;⚠️ Нет аудита" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;fontSize=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="630" y="170" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="security2" value="⚠️ Нет шифрования&#xa;⚠️ Нет контроля доступа&#xa;⚠️ Нет аудита" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;fontSize=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="720" y="460" width="200" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
