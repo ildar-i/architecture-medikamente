@@ -1,0 +1,88 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram name="Целевое состояние - Регистрация пациента" id="dfd-target">
+    <mxGraphModel dx="1216" dy="801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="patient" value="Пациент" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;arcSize=8;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="doctor" value="Врач" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;arcSize=8;strokeWidth=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="30" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="process1" value="1.0&#xa;Валидация и&#xa;тегирование данных" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="150" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process2" value="2.0&#xa;Шифрование данных" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="300" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process3" value="3.0&#xa;Контроль доступа&#xa;(RBAC/ABAC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="440" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="process4" value="4.0&#xa;Аудит операций" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="300" y="610" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="store1" value="База данных:&#xa;Пациенты&#xa;(шифрованная)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="570" y="300" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="store2" value="Object Storage:&#xa;Медицинские файлы&#xa;(шифрованные)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="570" y="480" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="store3" value="Audit Log:&#xa;Журнал аудита" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="570" y="640" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="service1" value="Key Management&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="750" y="300" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="service2" value="Access Control&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;arcSize=8;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="750" y="420" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" value="Персональные данные&#xa;(TLS 1.3)" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="patient" target="process1" edge="1">
+          <mxGeometry x="0.327" y="27" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow2" value="Тегированные данные" style="endArrow=block;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process1" target="process2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" value="Шифрованные данные" style="endArrow=block;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process2" target="process3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" value="Авторизованные данные" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process3" target="store1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" value="Медицинские файлы" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process3" target="store2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow6" value="События доступа" style="endArrow=block;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process3" target="process4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow7" value="Записи аудита" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;" parent="1" source="process4" target="store3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow8" value="Ключи шифрования" style="endArrow=block;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeColor=#9673a6;strokeWidth=2;dashed=1;" parent="1" source="service1" target="process2" edge="1">
+          <mxGeometry x="0.5447" y="-18" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow9" value="Проверка доступа" style="endArrow=block;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeColor=#9673a6;strokeWidth=2;dashed=1;" parent="1" source="service2" target="process3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow10" value="Просмотр данных" style="endArrow=block;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;strokeWidth=2;dashed=1;" parent="1" source="doctor" target="store1" edge="1">
+          <mxGeometry x="-0.4534" y="30" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="security1" value="✅ TLS 1.3&#xa;✅ Валидация данных&#xa;✅ Тегирование" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;fontSize=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="920" y="160" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="security2" value="✅ AES-256 шифрование&#xa;✅ Key Management&#xa;✅ Контроль доступа" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;fontSize=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="920" y="280" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="security3" value="✅ RBAC/ABAC&#xa;✅ Аудит доступа&#xa;✅ Мониторинг" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;align=left;verticalAlign=top;spacingLeft=5;spacingTop=5;fontSize=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="920" y="420" width="180" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
